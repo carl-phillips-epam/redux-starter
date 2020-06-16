@@ -1,15 +1,17 @@
-import produce, { Produce } from "immer"
+import store from "./store";
 
-let book = { title: "Harry Potter" };
+store.subscribe(() => console.log("Stored changed!", store.getState()));
 
-function publish(book) {
-    return produce(book, draftBook => {
-        draftBook.isPublished = true;
-    });
-    // book.isPublished = true;
-}
+store.dispatch({
+    type: "bugAdded",
+    payload: {
+        description: "Bug1"
+    }
+});
 
-const updated = publish(book);
-
-console.log(book);
-console.log(updated);
+store.dispatch({
+    type: "bugRemoved",
+    payload: {
+        id: 1
+    }
+});
