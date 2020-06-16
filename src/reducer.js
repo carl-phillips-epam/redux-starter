@@ -20,12 +20,7 @@ export default function reducer(state = [], action) {
             }
             case actions.BUG_RESOLVED:
             {
-                draftState.map(bug => {
-                    if(bug.id === action.payload.id) {
-                        bug.resolved = true;
-                        return bug;
-                    }
-                });
+                draftState.map(bug => (bug.id === action.payload.id) ? bug.resolved = true : bug);
             }
             default:
             {
