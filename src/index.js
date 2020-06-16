@@ -9,6 +9,7 @@ function publish(book) {
     // book.isPublished = true;
 }
 
-// publish(book);
+const updated = publish(book);
 
 console.log(book);
+console.log(updated);
